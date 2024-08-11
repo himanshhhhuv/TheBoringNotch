@@ -1,10 +1,10 @@
+"use client";
 import { Container, Icons, Wrapper } from "@/components";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Button } from "@/components/ui/button";
 import SectionBadge from "@/components/ui/section-badge";
 import { features } from "@/constants";
 
-import { ArrowRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -32,7 +32,6 @@ const HomePage = () => {
                   className="w-4 h-4"
                 />
                 Introducing Boring Notch
-                <ChevronRight className="w-4 h-4" />
               </span>
             </button>
 
@@ -49,18 +48,20 @@ const HomePage = () => {
               <div className="hidden md:flex relative items-center justify-center mt-8 md:mt-12 w-full">
                 <Link
                   href="https://github.com/iamharshdev/TheBoringNotch/releases"
-                  className="flex items-center justify-center w-max rounded-full border-t border-foreground/30 bg-white/20 backdrop-blur-lg px-2 py-1 md:py-2 gap-2 md:gap-8 shadow-3xl shadow-background/40 cursor-pointer select-none"
-                >
+                  className="flex items-center justify-center w-max rounded-full border-t border-foreground/30 bg-white/20 backdrop-blur-lg px-2 py-1 md:py-2 gap-2 md:gap-8 shadow-3xl shadow-background/40 cursor-pointer select-none">
                   <p className="text-foreground text-sm text-center md:text-base font-medium pl-4 pr-4 lg:pr-0">
                     ✨ {"  "} Download Boring Notch and rock your MacBook’s
                     notch! 🎸
                   </p>
                   <Button
                     size="sm"
-                    className="rounded-full hidden lg:flex border border-foreground/20 hover:bg-blue-600"
-                  >
+                    onClick={() =>
+                      window.open(
+                        "https://github.com/iamharshdev/TheBoringNotch/releases"
+                      )
+                    }
+                    className="rounded-full hidden lg:flex border border-foreground/20 hover:bg-blue-600">
                     Download
-                    <ArrowRight className="w-4 h-4 ml-1" />
                   </Button>
                 </Link>
               </div>
@@ -110,8 +111,7 @@ const HomePage = () => {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="flex flex-col items-start lg:items-start px-0 md:px-0"
-                >
+                  className="flex flex-col items-start lg:items-start px-0 md:px-0">
                   <div className="flex items-center justify-center">
                     <feature.icon className="w-8 h-8" />
                   </div>

@@ -1,9 +1,10 @@
-import React from 'react'
-import Link from 'next/link'
+"use client";
+import React from "react";
+import Link from "next/link";
 
-import Image from 'next/image'
-import Iconn from "../../../public/icons/icon.png"
-
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Iconn from "../../../public/icons/icon.png";
 
 const navbar = () => {
   return (
@@ -11,39 +12,42 @@ const navbar = () => {
       <div className="flex items-center justify-between h-full mx-auto md:max-w-screen-xl">
         <div className="flex items-start">
           <Link href="/" className="flex items-center gap-2">
-            <Image src={Iconn} width={40}  alt='BoringNotch'/>
+            <Image src={Iconn} width={40} alt="BoringNotch" />
             <span className="text-lg font-medium">Boring.Notch</span>
           </Link>
         </div>
         <nav className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <ul className="flex items-center justify-center gap-8">
-            <Link
-              href="https://github.com/iamharshdev/TheBoringNotch/releases"
-              className="hover:text-foreground/80 text-sm"
-            >
-              Download
-            </Link>
-            <Link
-              href="https://github.com/iamharshdev/TheBoringNotch"
-              className="hover:text-foreground/80 text-sm"
-            >
-              Github
-            </Link>
-            <Link
+            <a
               href="https://x.com/theboringnotch"
-              className="hover:text-foreground/80 text-sm"
-            >
+              className="hover:text-foreground/80 text-sm">
               Find us on X
-            </Link>
-            <Link href="#" className="hover:text-foreground/80 text-sm">
+            </a>
+            <a href="#" className="hover:text-foreground/80 text-sm">
               Join us on Discord
-            </Link>
+            </a>
           </ul>
         </nav>
-        <div className="flex items-center gap-4"></div>
+        <div className="flex items-center gap-5">
+          <a
+            href="https://github.com/iamharshdev/TheBoringNotch"
+            className="hover:text-foreground/80 text-sm">
+            Github
+          </a>
+          <Button
+            size="sm"
+            onClick={() =>
+              window.open(
+                "https://github.com/iamharshdev/TheBoringNotch/releases"
+              )
+            }
+            className="rounded-full hidden lg:flex border border-foreground/20 hover:bg-blue-600">
+            Download
+          </Button>
+        </div>
       </div>
     </header>
   );
-}
+};
 
-export default navbar
+export default navbar;
