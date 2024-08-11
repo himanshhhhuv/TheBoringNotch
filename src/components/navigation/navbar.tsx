@@ -11,7 +11,7 @@ const navbar = () => {
       <div className="flex items-center justify-between h-full mx-auto md:max-w-screen-xl">
         <div className="flex items-start">
           <Link href="/" className="flex items-center gap-2">
-            <Image src={Iconn} width={40} />
+            <Image src={Iconn} width={40}  alt='BoringNotch'/>
             <span className="text-lg font-medium">Boring.Notch</span>
           </Link>
         </div>
