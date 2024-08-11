@@ -1,18 +1,16 @@
 import { Container, Icons, Wrapper } from "@/components";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Button } from "@/components/ui/button";
-
-
 import SectionBadge from "@/components/ui/section-badge";
-import { features,  } from "@/constants";
+import { features } from "@/constants";
 
-import { ArrowRight, ChevronRight, UserIcon, Zap } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const HomePage = () => {
   return (
-    <section className=" w-full relative flex flex-col items-center justify-center px-4 md:px-0 py-8">
+    <section className="w-full relative flex flex-col items-center justify-center px-4 md:px-0 py-8">
       {}
       <Wrapper>
         <div className="absolute inset-0 dark:bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[linear-gradient(to_right,#161616_1px,transparent_1px),linear-gradient(to_bottom,#161616_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10 h-[150vh]" />
@@ -40,12 +38,13 @@ const HomePage = () => {
 
             <div className="flex flex-col items-center mt-8 max-w-3xl w-11/12 md:w-full">
               <h1 className="text-4xl md:text-6xl lg:textxl md:!leading-snug font-semibold text-center bg-clip-text bg-gradient-to-b from-gray-50 to-gray-50 text-transparent">
-                Boring.Notch 
+                Boring.Notch
               </h1>
               <p className="text-base md:text-lg text-foreground/80 mt-6 text-center">
-                BOring.Notch transforms your MacBook's notch into a dynamic
+                Boring.Notch transforms your MacBook&apos;s notch into a dynamic
                 music control center, complete with a visualizer and music
-                controls, making it the star of your screen & Yeah its Open Source
+                controls, making it the star of your screen &amp; Yeah its Open
+                Source
               </p>
               <div className="hidden md:flex relative items-center justify-center mt-8 md:mt-12 w-full">
                 <Link
@@ -95,8 +94,8 @@ const HomePage = () => {
               Discover our powerful features
             </h2>
             <p className="text-muted-foreground mt-6">
-              Boring Notch offers a range of boring features to help you have a boring
-              experience
+              Boring Notch offers a range of boring features to help you have a
+              boring experience
             </p>
           </div>
         </Container>
