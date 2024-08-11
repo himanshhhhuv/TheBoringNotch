@@ -22,7 +22,7 @@
     --border: 220 50% 13.2%;
     --input: 220 50% 13.2%;
 
-    --primary: 220 100% 44%;
+    --primary: 220 59.2% 41.4%
     --primary-foreground: 220 10% 97.2%;
 
     --secondary: 220 50% 13.2%;
@@ -119,12 +119,12 @@
 .gradient {
   background: conic-gradient(
     from 230.29deg at 51.63% 52.16%,
-    rgb(36, 0, 255) 0deg,
-    rgb(0, 135, 255) 67.5deg,
-    rgb(108, 39, 157) 198.75deg,
-    rgb(24, 38, 163) 251.25deg,
-    rgb(54, 103, 196) 301.88deg,
-    rgb(105, 30, 255) 360deg
+    rgb(175, 15, 15) 0deg,
+    rgb(255, 81, 0) 67.5deg,
+    rgb(224, 175, 26) 198.75deg,
+    rgb(175, 15, 15) 251.25deg,
+    rgb(255, 81, 0) 301.88deg,
+    rgb(224, 175, 26) 360deg
   );
 }
 
