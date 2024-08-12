@@ -20,14 +20,12 @@ const navbar = () => {
           <ul className="flex items-center justify-center gap-8">
             <a
               href="https://x.com/theboringnotch"
-              className="hover:text-foreground/80 text-sm"
-            >
+              className="hover:text-foreground/80 text-sm">
               Find us on X
             </a>
             <a
               href="https://discord.com/invite/HznxBpnJmQ"
-              className="hover:text-foreground/80 text-sm"
-            >
+              className="hover:text-foreground/80 text-sm">
               Join us on Discord
             </a>
           </ul>
@@ -35,8 +33,7 @@ const navbar = () => {
         <div className="flex items-center gap-5">
           <a
             href="https://github.com/iamharshdev/TheBoringNotch"
-            className="hover:text-foreground/80 text-sm"
-          >
+            className="hover:text-foreground/80 text-sm">
             Github
           </a>
           <Button
@@ -46,8 +43,7 @@ const navbar = () => {
                 "https://github.com/iamharshdev/TheBoringNotch/releases"
               )
             }
-            className="rounded-full hidden lg:flex border border-foreground/20 hover:bg-blue-600"
-          >
+            className="rounded-full hidden lg:flex border border-foreground/20 hover:bg-red-800">
             Download
           </Button>
         </div>

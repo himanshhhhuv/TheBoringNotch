@@ -60,7 +60,7 @@ const HomePage = () => {
                         "https://github.com/iamharshdev/TheBoringNotch/releases"
                       )
                     }
-                    className="rounded-full hidden lg:flex border border-foreground/20 hover:bg-blue-600">
+                    className="rounded-full hidden lg:flex border border-amber-500/20 hover:bg-red-800">
                     Download
                   </Button>
                 </Link>
