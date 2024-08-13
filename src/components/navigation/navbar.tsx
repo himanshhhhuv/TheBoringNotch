@@ -40,6 +40,7 @@ const navbar = () => {
             </a>
           </ul>
         </nav>
+        
         <div className="flex items-center gap-5">
           <a
             href="https://github.com/iamharshdev/TheBoringNotch"
@@ -59,6 +60,7 @@ const navbar = () => {
             Download
           </Button>
         </div>
+        
       </div>
     </header>
   );

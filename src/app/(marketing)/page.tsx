@@ -3,7 +3,7 @@ import { Container, Icons, Wrapper } from "@/components";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Button } from "@/components/ui/button";
 import SectionBadge from "@/components/ui/section-badge";
-import { features, detail } from "@/constants";
+import { features } from "@/constants";
 import { Heart } from "lucide-react";
 import Iconn from "../../../public/icons/icon.png";
 import { useEffect } from "react";
@@ -13,6 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const HomePage = () => {
+
   useEffect(() => {
     const handleAnchorScroll = (event) => {
       event.preventDefault();
