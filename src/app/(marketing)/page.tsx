@@ -14,27 +14,6 @@ import Link from "next/link";
 
 const HomePage = () => {
 
-  useEffect(() => {
-    const handleAnchorScroll = (event) => {
-      event.preventDefault();
-      const targetId = event.currentTarget.getAttribute("href");
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
-      }
-    };
-
-    const anchors = document.querySelectorAll('a[href^="#"]');
-    anchors.forEach((anchor) =>
-      anchor.addEventListener("click", handleAnchorScroll)
-    );
-
-    return () => {
-      anchors.forEach((anchor) =>
-        anchor.removeEventListener("click", handleAnchorScroll)
-      );
-    };
-  }, []);
 
   return (
     <section className="w-full relative flex flex-col items-center justify-center px-4 md:px-0 py-8">
