@@ -26,10 +26,9 @@ const navbar = () => {
               <XLogo size={28} weight="light" />
             </a>
             <a
-              href="https://x.com/theboringnotch"
+              href="https://github.com/sponsors/iamharshdev"
               className="hover:text-foreground/80 text-sm"
             >
-            
               <Heart size={28} weight="light" />
             </a>
             <a
@@ -40,7 +39,7 @@ const navbar = () => {
             </a>
           </ul>
         </nav>
-        
+
         <div className="flex items-center gap-5">
           <a
             href="https://github.com/iamharshdev/TheBoringNotch"
@@ -60,7 +59,6 @@ const navbar = () => {
             Download
           </Button>
         </div>
-        
       </div>
     </header>
   );
