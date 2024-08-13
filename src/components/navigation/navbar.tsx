@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { XLogo ,DiscordLogo, GithubLogo,Heart,} from "@phosphor-icons/react"
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -20,21 +21,31 @@ const navbar = () => {
           <ul className="flex items-center justify-center gap-8">
             <a
               href="https://x.com/theboringnotch"
-              className="hover:text-foreground/80 text-sm">
-              Find us on X
+              className="hover:text-foreground/80 text-sm"
+            >
+              <XLogo size={28} weight="light" />
+            </a>
+            <a
+              href="https://x.com/theboringnotch"
+              className="hover:text-foreground/80 text-sm"
+            >
+            
+              <Heart size={28} weight="light" />
             </a>
             <a
               href="https://discord.com/invite/HznxBpnJmQ"
-              className="hover:text-foreground/80 text-sm">
-              Join us on Discord
+              className="hover:text-foreground/80 text-sm"
+            >
+              <DiscordLogo size={28} weight="light" />
             </a>
           </ul>
         </nav>
         <div className="flex items-center gap-5">
           <a
             href="https://github.com/iamharshdev/TheBoringNotch"
-            className="hover:text-foreground/80 text-sm">
-            Github
+            className="hover:text-foreground/80 text-sm"
+          >
+            <GithubLogo size={32} weight="light" />
           </a>
           <Button
             size="sm"
@@ -43,7 +54,8 @@ const navbar = () => {
                 "https://github.com/iamharshdev/TheBoringNotch/releases"
               )
             }
-            className="rounded-full hidden lg:flex border border-foreground/20 hover:bg-red-800">
+            className="rounded-full hidden lg:flex border border-foreground/20 hover:bg-red-800"
+          >
             Download
           </Button>
         </div>

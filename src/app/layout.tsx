@@ -3,6 +3,8 @@ import "@/styles/globals.css";
 import { Poppins } from "next/font/google";
 import { SITE_CONFIG } from "@/config";
 
+
+
 const font = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"], // Add weights as needed

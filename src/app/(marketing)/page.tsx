@@ -3,12 +3,38 @@ import { Container, Icons, Wrapper } from "@/components";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Button } from "@/components/ui/button";
 import SectionBadge from "@/components/ui/section-badge";
-import { features } from "@/constants";
+import { features, detail } from "@/constants";
+import { Heart } from "lucide-react";
+import Iconn from "../../../public/icons/icon.png";
+import { useEffect } from "react";
+
 
 import Image from "next/image";
 import Link from "next/link";
 
 const HomePage = () => {
+  useEffect(() => {
+    const handleAnchorScroll = (event) => {
+      event.preventDefault();
+      const targetId = event.currentTarget.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    const anchors = document.querySelectorAll('a[href^="#"]');
+    anchors.forEach((anchor) =>
+      anchor.addEventListener("click", handleAnchorScroll)
+    );
+
+    return () => {
+      anchors.forEach((anchor) =>
+        anchor.removeEventListener("click", handleAnchorScroll)
+      );
+    };
+  }, []);
+
   return (
     <section className="w-full relative flex flex-col items-center justify-center px-4 md:px-0 py-8">
       {}
@@ -47,8 +73,9 @@ const HomePage = () => {
               </p>
               <div className="hidden md:flex relative items-center justify-center mt-8 md:mt-12 w-full">
                 <Link
-                  href="https://github.com/iamharshdev/TheBoringNotch/releases"
-                  className="flex items-center justify-center w-max rounded-full border-t border-foreground/30 bg-white/20 backdrop-blur-lg px-2 py-1 md:py-2 gap-2 md:gap-8 shadow-3xl shadow-background/40 cursor-pointer select-none">
+                  href="/"
+                  className="flex items-center justify-center w-max rounded-full border-t border-foreground/30 bg-white/20 backdrop-blur-lg px-2 py-1 md:py-2 gap-2 md:gap-8 shadow-3xl shadow-background/40 cursor-pointer select-none"
+                >
                   <p className="text-foreground text-sm text-center md:text-base font-medium pl-4 pr-4 lg:pr-0">
                     ✨ {"  "} Download Boring Notch and rock your MacBook’s
                     notch! 🎸
@@ -60,7 +87,8 @@ const HomePage = () => {
                         "https://github.com/iamharshdev/TheBoringNotch/releases"
                       )
                     }
-                    className="rounded-full hidden lg:flex border border-amber-500/20 hover:bg-red-800">
+                    className="rounded-full hidden lg:flex border border-amber-500/20 hover:bg-red-800"
+                  >
                     Download
                   </Button>
                 </Link>
@@ -92,7 +120,10 @@ const HomePage = () => {
         <Container>
           <div className="max-w-md mx-auto text-start md:text-center">
             <SectionBadge title="Features" />
-            <h2 className="text-3xl lg:text-4xl font-semibold mt-6">
+            <h2
+              id="features-section"
+              className="text-3xl lg:text-4xl font-semibold mt-6"
+            >
               Discover our powerful features
             </h2>
             <p className="text-muted-foreground mt-6">
@@ -112,7 +143,8 @@ const HomePage = () => {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="flex flex-col items-start lg:items-start px-0 md:px-0">
+                  className="flex flex-col items-start lg:items-start px-0 md:px-0"
+                >
                   <div className="flex items-center justify-center">
                     <feature.icon className="w-8 h-8" />
                   </div>
@@ -125,6 +157,96 @@ const HomePage = () => {
             </div>
           </div>
         </Container>
+      </Wrapper>
+      <Wrapper className="flex flex-col items-center justify-center py-12 relative">
+        <div className="hidden md:block absolute top-0 -right-1/3 w-72 h-72 bg-red-700 rounded-full blur-[10rem] -z-10"></div>
+        <div className="hidden md:block absolute bottom-0 -left-1/3 w-72 h-72 bg-amber-600 rounded-full blur-[10rem] -z-10"></div>
+        <footer className="flex flex-col relative items-center justify-center border-t border-border pt-16 pb-8 px-6 lg:px-8 w-full max-w-6xl mx-auto lg:pt-32">
+          <div className="hidden lg:block absolute -top-1/3 -right-1/4 bg-primary w-72 h-72 rounded-full -z-10 blur-[14rem]"></div>
+          <div className="hidden lg:block absolute bottom-0 -left-1/4 bg-primary w-72 h-72 rounded-full -z-10 blur-[14rem]"></div>
+
+          <div className="grid gap-8 xl:grid-cols-3 xl:gap-8 w-full">
+            <div className="flex flex-col items-start justify-start md:max-w-[200px]">
+              <div className="flex items-start">
+                <Link href="/">
+                  <Image src={Iconn} width={50} alt="BoringNotch" />
+                </Link>
+              </div>
+              <p className="text-muted-foreground mt-4 text-sm text-start">
+                Boring as an Aesthetic
+              </p>
+              <span className="mt-4 text-neutral-200 text-sm flex items-center">
+                Made by Humans with
+                <Heart className="w-3.5 h-3.5 ml-1 fill-primary text-primary" />
+              </span>
+            </div>
+
+            <div className="grid-cols-2 gap-8 grid mt-16 xl:col-span-2 xl:mt-0">
+              <div className="md:grid md:grid-cols-2 md:gap-8">
+                <div className="">
+                  <h3 className="text-base font-medium text-white">Product</h3>
+                  <ul className="mt-4 text-sm text-muted-foreground">
+                    <li className="mt-2">
+                      <Link
+                        href="#features-section"
+                        className="hover:text-foreground transition-all duration-300"
+                      >
+                        Features
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className="mt-10 md:mt-0 flex flex-col">
+                  <h3 className="text-base font-medium text-white">
+                    Integrations
+                  </h3>
+                  <ul className="mt-4 text-sm text-muted-foreground">
+                    <li className="mt-2">
+                      <Link
+                        href="https://discord.com/invite/HznxBpnJmQ"
+                        className="hover:text-foreground transition-all duration-300"
+                      >
+                        Discord
+                      </Link>
+                    </li>
+                    <li className="mt-2">
+                      <Link
+                        href="https://x.com/theboringnotch"
+                        className="hover:text-foreground transition-all duration-300"
+                      >
+                        X
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="md:grid md:grid-cols-2 md:gap-8">
+                <div className="">
+                  <h3 className="text-base font-medium text-white">
+                    Resources
+                  </h3>
+                  <ul className="mt-4 text-sm text-muted-foreground">
+                    <li className="mt-2">
+                      <Link
+                        href="https://github.com/sponsors/iamharshdev"
+                        className="hover:text-foreground transition-all duration-300"
+                      >
+                        Support Us
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 border-t border-border/40 pt-4 md:pt-8 md:flex md:items-center md:justify-between w-full">
+            <p className="text-sm text-muted-foreground mt-8 md:mt-0">
+              &copy; {new Date().getFullYear()} Boring.Notch . All rights
+              reserved.
+            </p>
+          </div>
+        </footer>
       </Wrapper>
     </section>
   );
