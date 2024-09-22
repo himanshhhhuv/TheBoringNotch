@@ -7,7 +7,7 @@ import { features } from "@/constants";
 import { Heart } from "lucide-react";
 import Iconn from "../../../public/icons/icon.png";
 import { useEffect } from "react";
-import GitHubProfilePopup from "@/components/GitHubProfilePopup";
+import GitHubProfilePopup from "@/components/GithubProfilePopup";
 
 import Image from "next/image";
 import Link from "next/link";
