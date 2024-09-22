@@ -7,14 +7,12 @@ import { features } from "@/constants";
 import { Heart } from "lucide-react";
 import Iconn from "../../../public/icons/icon.png";
 import { useEffect } from "react";
-
+import GitHubProfilePopup from "@/components/GitHubProfilePopup";
 
 import Image from "next/image";
 import Link from "next/link";
 
 const HomePage = () => {
-
-
   return (
     <section className="w-full relative flex flex-col items-center justify-center px-4 md:px-0 py-8">
       {}
@@ -57,7 +55,7 @@ const HomePage = () => {
                   className="flex items-center justify-center w-max rounded-full border-t border-foreground/30 bg-white/20 backdrop-blur-lg px-2 py-1 md:py-2 gap-2 md:gap-8 shadow-3xl shadow-background/40 cursor-pointer select-none"
                 >
                   <p className="text-foreground text-sm text-center md:text-base font-medium pl-4 pr-4 lg:pr-0">
-                    ✨ {"  "} Download Boring Notch and rock your MacBook’s
+                    ✨ {"  "} Download Boring Notch and rock your MacBook's
                     notch! 🎸
                   </p>
                   <Button
@@ -94,6 +92,7 @@ const HomePage = () => {
           </div>
         </Container>
       </Wrapper>
+
       <Wrapper className="flex flex-col items-center justify-center py-12 relative">
         <div className="hidden md:block absolute top-0 -right-1/3 w-72 h-72 bg-red-700 rounded-full blur-[10rem] -z-10"></div>
         <div className="hidden md:block absolute bottom-0 -left-1/3 w-72 h-72 bg-amber-600 rounded-full blur-[10rem] -z-10"></div>
@@ -156,7 +155,18 @@ const HomePage = () => {
                 Boring as an Aesthetic
               </p>
               <span className="mt-4 text-neutral-200 text-sm flex items-center">
-                Made by Humans with
+                Made by{" "}
+                <GitHubProfilePopup
+                  usernames={["himanshhhhuv", "richardkunkli", "iamharshdev"]}
+                >
+                  <span
+                   
+                    className="underline  underline-offset-2 mr-1 ml-1 cursor-pointer"
+                  >
+                    Humans
+                  </span>
+                </GitHubProfilePopup>
+                with
                 <Heart className="w-3.5 h-3.5 ml-1 fill-primary text-primary" />
               </span>
             </div>

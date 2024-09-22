@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { XLogo ,DiscordLogo, GithubLogo,Heart,} from "@phosphor-icons/react"
+import { XLogo ,DiscordLogo, GithubLogo,Heart, CurrencyCircleDollar,} from "@phosphor-icons/react"
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Iconn from "../../../public/icons/icon.png";
 
-const navbar = () => {
+const Navbar = () => {
   return (
     <header className="px-4 h-14 sticky top-0 inset-x-0 w-full bg-background/40 backdrop-blur-lg border-b border-amber-600/10 z-50">
       <div className="flex items-center justify-between h-full mx-auto md:max-w-screen-xl">
@@ -41,6 +41,12 @@ const navbar = () => {
         </nav>
 
         <div className="flex items-center gap-5">
+          <Link
+            href="/pricing"
+            className="hover:text-foreground/80 text-sm"
+          >
+            <CurrencyCircleDollar size={32} weight="light" />
+          </Link>
           <a
             href="https://github.com/iamharshdev/TheBoringNotch"
             className="hover:text-foreground/80 text-sm"
@@ -64,4 +70,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default Navbar;
