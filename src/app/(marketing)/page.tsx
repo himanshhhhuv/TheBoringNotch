@@ -11,18 +11,7 @@ import Iconn from "../../../public/icons/icon.png";
 import Image from "next/image";
 import Link from "next/link";
 
-interface Release {
-  name: string;
-  tag_name: string;
-  published_at: string;
-  assets: Asset[];
-}
-
-interface Asset {
-  name: string;
-  browser_download_url: string;
-  size: number;
-}
+import type { Release, Asset } from "@/lib/types";
 
 const HomePage = () => {
   const [latestRelease, setLatestRelease] = useState<String | undefined>(
