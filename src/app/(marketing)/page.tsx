@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import { Container, Icons, Wrapper } from "@/components";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Button } from "@/components/ui/button";
@@ -6,15 +7,42 @@ import SectionBadge from "@/components/ui/section-badge";
 import { features } from "@/constants";
 import { Heart } from "lucide-react";
 import Iconn from "../../../public/icons/icon.png";
-import { useEffect } from "react";
-
 
 import Image from "next/image";
 import Link from "next/link";
 
+interface Release {
+  name: string;
+  tag_name: string;
+  published_at: string;
+  assets: Asset[];
+}
+
+interface Asset {
+  name: string;
+  browser_download_url: string;
+  size: number;
+}
+
 const HomePage = () => {
+  const [latestRelease, setLatestRelease] = useState<String | undefined>(
+    undefined
+  );
 
+  let endpoint =
+    "https://api.github.com/repos/TheBoredTeam/boring.notch/releases/latest";
 
+  useEffect(() => {
+    fetch(endpoint)
+      .then((res) => res.json())
+      .then((data: Release) => {
+        data.assets.forEach((asset: Asset) => {
+          if (asset.browser_download_url !== null) {
+            setLatestRelease(asset.browser_download_url);
+          }
+        });
+      });
+  }, []);
   return (
     <section className="w-full relative flex flex-col items-center justify-center px-4 md:px-0 py-8">
       {}
@@ -54,8 +82,7 @@ const HomePage = () => {
               <div className="hidden md:flex relative items-center justify-center mt-8 md:mt-12 w-full">
                 <Link
                   href="/"
-                  className="flex items-center justify-center w-max rounded-full border-t border-foreground/30 bg-white/20 backdrop-blur-lg px-2 py-1 md:py-2 gap-2 md:gap-8 shadow-3xl shadow-background/40 cursor-pointer select-none"
-                >
+                  className="flex items-center justify-center w-max rounded-full border-t border-foreground/30 bg-white/20 backdrop-blur-lg px-2 py-1 md:py-2 gap-2 md:gap-8 shadow-3xl shadow-background/40 cursor-pointer select-none">
                   <p className="text-foreground text-sm text-center md:text-base font-medium pl-4 pr-4 lg:pr-0">
                     ✨ {"  "} Download Boring Notch and rock your MacBook’s
                     notch! 🎸
@@ -64,11 +91,12 @@ const HomePage = () => {
                     size="sm"
                     onClick={() =>
                       window.open(
-                        "https://github.com/iamharshdev/TheBoringNotch/releases"
+                        latestRelease !== undefined
+                          ? latestRelease.toString()
+                          : "https://github.com/iamharshdev/TheBoringNotch/releases"
                       )
                     }
-                    className="rounded-full hidden lg:flex border border-amber-500/20 hover:bg-red-800"
-                  >
+                    className="rounded-full hidden lg:flex border border-amber-500/20 hover:bg-red-800">
                     Download
                   </Button>
                 </Link>
@@ -102,8 +130,7 @@ const HomePage = () => {
             <SectionBadge title="Features" />
             <h2
               id="features-section"
-              className="text-3xl lg:text-4xl font-semibold mt-6"
-            >
+              className="text-3xl lg:text-4xl font-semibold mt-6">
               Discover our powerful features
             </h2>
             <p className="text-muted-foreground mt-6">
@@ -123,8 +150,7 @@ const HomePage = () => {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="flex flex-col items-start lg:items-start px-0 md:px-0"
-                >
+                  className="flex flex-col items-start lg:items-start px-0 md:px-0">
                   <div className="flex items-center justify-center">
                     <feature.icon className="w-8 h-8" />
                   </div>
@@ -169,8 +195,7 @@ const HomePage = () => {
                     <li className="mt-2">
                       <Link
                         href="#features-section"
-                        className="hover:text-foreground transition-all duration-300"
-                      >
+                        className="hover:text-foreground transition-all duration-300">
                         Features
                       </Link>
                     </li>
@@ -184,16 +209,14 @@ const HomePage = () => {
                     <li className="mt-2">
                       <Link
                         href="https://discord.com/invite/HznxBpnJmQ"
-                        className="hover:text-foreground transition-all duration-300"
-                      >
+                        className="hover:text-foreground transition-all duration-300">
                         Discord
                       </Link>
                     </li>
                     <li className="mt-2">
                       <Link
                         href="https://x.com/theboringnotch"
-                        className="hover:text-foreground transition-all duration-300"
-                      >
+                        className="hover:text-foreground transition-all duration-300">
                         X
                       </Link>
                     </li>
@@ -209,8 +232,7 @@ const HomePage = () => {
                     <li className="mt-2">
                       <Link
                         href="https://github.com/sponsors/iamharshdev"
-                        className="hover:text-foreground transition-all duration-300"
-                      >
+                        className="hover:text-foreground transition-all duration-300">
                         Support Us
                       </Link>
                     </li>
